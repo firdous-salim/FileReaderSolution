@@ -1,0 +1,53 @@
+using System;
+string choise;
+do
+{
+    //taking input from the user
+    Console.WriteLine("Enter Your First String");
+    string s1 = Console.ReadLine();
+    Console.WriteLine("Enter Your Second String");
+    string s2 = Console.ReadLine();
+
+    //temporary variable to check Array is same or nor
+    int temp = 0;
+
+    //checking if the size of both strings are same or note
+    if (s1.Length == s2.Length)
+    {
+        //converting string to charactor array
+        char[] st1 = s1.ToCharArray();
+        char[] st2 = s2.ToCharArray();
+
+        // shorting array because if all charactors are same then the order must be same after sorting it
+        Array.Sort(st1);
+        Array.Sort(st2);
+
+        //checking every element is same or not
+        for (int i = 0; i < st1.Length; i++)
+        {
+            if (st1[i] != st2[i])
+            {
+                temp++;
+            }
+        }
+        if (temp == 0)
+        {
+            Console.WriteLine("It is an ANAGRAM");
+        }
+        else
+        {
+            {
+                Console.WriteLine("It is not ANAGRAM");
+            }
+        }
+    }
+    else
+    {
+        Console.WriteLine("It is not ANAGRAM");
+    }
+
+    //asking user for another try
+    Console.WriteLine("Do You Want to Check another Words ?");
+    choise= Console.ReadLine();
+
+}while(choise[0] == 'Y' || choise[0] =='y');
